@@ -24,7 +24,6 @@ jobs:
           - loadgenerator
           - productcatalogservice
           - shippingservice
-          - cartservice
           - currencyservice
           - frontend
           - paymentservice
@@ -54,6 +53,16 @@ jobs:
         tags: |
           ${{ env.IMAGE_NAMESPACE }}/google-boutique-microservice-${{ matrix.service }}:1.0.0
           ${{ env.IMAGE_NAMESPACE }}/google-boutique-microservice-${{ matrix.service }}:latest
+
+    - name: Build and Push CartService Image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: src/cartservice/src/Dockerfile
+        push: true
+        tags: |
+          ${{ env.IMAGE_NAMESPACE }}/google-boutique-microservice-cartservice:1.0.0
+          ${{ env.IMAGE_NAMESPACE }}/google-boutique-microservice-cartservice:latest
 
 
     # - name: Build and Push Image
