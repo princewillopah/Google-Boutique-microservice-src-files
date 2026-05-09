@@ -57,7 +57,7 @@ jobs:
     - name: Build and Push CartService Image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: ./src/cartservice
         file: src/cartservice/src/Dockerfile
         push: true
         tags: |
