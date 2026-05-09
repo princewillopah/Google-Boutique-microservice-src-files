@@ -48,7 +48,7 @@ jobs:
     - name: Build and Push Image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: ./src/${{ matrix.service }}
         file: src/${{ matrix.service }}/Dockerfile
         push: true
         tags: |
@@ -64,4 +64,4 @@ jobs:
     #     tags: |
     #       ${{ env.IMAGE_NAMESPACE }}/luxecart-${{ matrix.service }}:1.0.0
     #       ${{ env.IMAGE_NAMESPACE }}/luxecart-${{ matrix.service }}:latest
-     #       ${{ env.IMAGE_NAMESPACE }}/luxecart-${{ matrix.service }}:latest
+    #       ${{ env.IMAGE_NAMESPACE }}/luxecart-${{ matrix.service }}:latest
